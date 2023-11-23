@@ -53,6 +53,8 @@ const App = () => {
       <Form {...form}>
         <form
           // onSubmit={form.handleSubmit(onSubmit)}
+          name="projects"
+          onSubmit="submit"
           method="POST"
           className="space-y-8"
           enctype="multipart/form-data"
