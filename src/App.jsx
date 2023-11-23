@@ -52,7 +52,8 @@ const App = () => {
       <Navbar />
       <Form {...form}>
         <form
-          onSubmit={form.handleSubmit(onSubmit)}
+          // onSubmit={form.handleSubmit(onSubmit)}
+          method="POST"
           className="space-y-8"
           enctype="multipart/form-data"
           data-netlify="true"
