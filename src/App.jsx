@@ -44,13 +44,25 @@ const App = () => {
     },
   });
 
+  function jsonToFormData(jsonData) {
+    const formData = new FormData();
+
+    Object.entries(jsonData).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+
+    return formData;
+  }
+
   const onSubmit = (values) => {
     console.log(values);
+
+    const formData = jsonToFormData(values);
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(values).toString(),
+      body: new URLSearchParams(formData).toString(),
     })
       .then(() => console.log("Form successfully submitted"))
       .catch((error) => alert(error));
