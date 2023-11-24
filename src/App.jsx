@@ -46,20 +46,20 @@ const App = () => {
 
   const onSubmit = (values) => {
     console.log(values);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(values).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
   };
   return (
     <main className="bg-black w-screen h-screen p-20">
       <Navbar />
       <Form {...form}>
-        <form
-          // onSubmit={form.handleSubmit(onSubmit)}
-          name="projects"
-          onSubmit="submit"
-          method="POST"
-          className="space-y-8"
-          enctype="multipart/form-data"
-          data-netlify="true"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
             name="projectName"
