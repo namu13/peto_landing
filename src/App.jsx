@@ -44,33 +44,33 @@ const App = () => {
     },
   });
 
-  function jsonToFormData(jsonData) {
-    const formData = new FormData();
+  // function jsonToFormData(jsonData) {
+  //   const formData = new FormData();
 
-    Object.entries(jsonData).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
+  //   Object.entries(jsonData).forEach(([key, value]) => {
+  //     formData.append(key, value);
+  //   });
 
-    return formData;
-  }
+  //   return formData;
+  // }
 
   const onSubmit = (values) => {
     console.log(values);
 
-    const formData = jsonToFormData(values);
+    // const formData = jsonToFormData(values);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => console.log("Form successfully submitted"))
-      .catch((error) => alert(error));
+    // fetch("/", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    //   body: new URLSearchParams(formData).toString(),
+    // })
+    //   .then(() => console.log("Form successfully submitted"))
+    //   .catch((error) => alert(error));
   };
   return (
     <main className="bg-black w-screen h-screen p-20">
       <Navbar />
-      <Form {...form}>
+      <Form {...form} data-netlify="true">
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <FormField
             control={form.control}
