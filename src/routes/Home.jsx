@@ -220,22 +220,59 @@ const Home = () => {
             and calendly.
           </p>
         </div>
-        <div className="grid mt-12 lg:grid-cols-2 lg:grid-rows-2 lg:gap-5">
-          <div className="lg:col-span-full bg-black border border-white rounded-2xl px-8 py-10">
-            <div>
-              <span className="text-3xl font-peto font-bold">Project Card</span>
-              <p>
-                In the Project card page the project will be categorized by two
-                standards: location and topic. By this function, you can check
-                where projects are operated and the main topic of the
-                project.When you click the project that interests you, you can
-                also get more information about the project such as target
-                audience, business model, and go to market strategy.
-              </p>
+        <div className="grid mt-12 grid-cols-[270px_270px_270px] lg:grid-cols-2 lg:grid-rows-[auto_auto] lg:gap-5">
+          <div className="lg:col-span-full bg-black border border-white rounded-2xl px-8 pt-10">
+            <div className="grid grid-cols-2 h-full">
+              <div>
+                <span className="text-3xl font-peto font-bold">
+                  PROJECT CARD
+                </span>
+                <p className="mt-3">
+                  In the Project card page the project will be categorized by
+                  two standards: location and topic. By this function, you can
+                  check where projects are operated and the main topic of the
+                  project.When you click the project that interests you, you can
+                  also get more information about the project such as target
+                  audience, business model, and go to market strategy.
+                </p>
+              </div>
+              <div className="w-full h-[500px] self-end overflow-hidden">
+                <img
+                  src="/src/assets/project.jpg"
+                  width={550}
+                  className="m-auto"
+                />
+              </div>
             </div>
           </div>
-          <div className="bg-black border border-white rounded-2xl px-12 py-14"></div>
-          <div className="bg-black border border-white rounded-2xl px-12 py-14"></div>
+          <div className=" bg-black border border-white rounded-2xl px-12 pt-14">
+            <div>
+              <span className="text-3xl font-peto font-bold">
+                VISION FRIEND
+              </span>
+              <p className="mt-3">
+                Vision Friend is a page with a list of visions. You interact
+                with other students with the same vision by pressing like and
+                commenting below. Additionally, you can build a project with a
+                vision friend with a shared vision.
+              </p>
+            </div>
+            <div className="w-full h-72 overflow-hidden mt-10">
+              <img src="/src/assets/vision_friend.jpg" />
+            </div>
+          </div>
+          <div className="bg-black border border-white rounded-2xl px-12 pt-14">
+            <span className="text-3xl font-peto font-bold">MEET UP!</span>
+            <p className="mt-3">
+              Calendly may sound familiar to you. You can book a meeting with a
+              project you find interesting. From this function, you can get
+              useful advice and feedback for your project and even collaborate
+              with the following project.
+            </p>
+            <div className="w-full h-80 overflow-hidden mt-4">
+              <img src="/src/assets/detail.jpg" width={550} />
+            </div>
+          </div>
         </div>
       </section>
       <section id="form" className="w-full lg:mt-24">
