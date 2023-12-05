@@ -50,49 +50,57 @@ const formSchema = z.object({
   lab: z.string({ required_error: "Please select lab." }),
   teamCompany: z.string().min(1, { message: "Please fill out Team company." }),
   topic: z.string({ required_error: "Please select topic." }),
-  // hashTag: z.string({ required_error: "Please fill out hashTag." }),
+  other: z.string().optional(),
   memberEmail_1: z
     .string({ required_error: "Please fill out email." })
+    .email()
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     }),
   memberEmail_2: z
     .string({ required_error: "Please fill out email." })
+    .email()
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     }),
   memberEmail_3: z
     .string()
+    .email()
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     })
     .optional(),
   memberEmail_4: z
     .string()
+    .email()
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     })
     .optional(),
   memberEmail_5: z
     .string()
+    .email()
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     })
     .optional(),
   memberEmail_6: z
     .string()
+    .email()
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     })
     .optional(),
   memberEmail_7: z
     .string()
+    .email()
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     })
     .optional(),
   memberEmail_8: z
     .string()
+    .email()
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     })
@@ -102,6 +110,7 @@ const formSchema = z.object({
 const Home = () => {
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
+  const [isTopicOther, setIsTopicOther] = useState(false);
 
   // Counter variable
   const countupRef = useRef(null);
@@ -126,6 +135,7 @@ const Home = () => {
       projectName: "",
       shortDescription: "",
       teamCompany: "",
+      other: "",
     },
   });
 
@@ -172,8 +182,17 @@ const Home = () => {
       setFile(files[0]);
     }
   };
+
+  const onTopicChange = (e) => {
+    const value = e.target.value;
+    if (value === "Other") {
+      setIsTopicOther(true);
+    } else {
+      setIsTopicOther(false);
+    }
+  };
   return (
-    <div className="flex flex-col justify-start items-center w-full h-full px-10 xl:px-40 lg:border lg:border-white">
+    <div className="flex flex-col justify-start items-center w-full h-full px-8 xl:px-40 lg:border lg:border-white">
       <section className="lg:mt-10">
         <div className="flex justify-center items-center gap-2 mb-10 lg:mb-16">
           <img src={logo} width={40} />
@@ -224,19 +243,22 @@ const Home = () => {
             Moreover, reach towards and boost your vision with reliable
             teammates.
           </p>
-          <p className="text-xl lg:text-center mt-3">
+          <p className="text-xl lg:text-center mt-3 mb-12">
             Our platform has three main functions: project card, vision friend,
             and calendly.
           </p>
         </div>
-        <div className="grid mt-12 grid-cols-[270px_270px_270px] lg:grid-cols-2 lg:grid-rows-[auto_auto] lg:gap-5">
-          <div className="lg:col-span-full bg-black border border-white rounded-2xl px-8 pt-10">
-            <div className="grid grid-cols-2 h-full">
+        <span className="font-bold font-peto text-2xl lg:hidden">
+          Main function
+        </span>
+        <div className="grid grid-cols-[90%_90%_90%] grid-rows-[230px] gap-3 overflow-scroll mt-5 lg:mt-12 lg:grid-cols-2 lg:grid-rows-[auto_auto] lg:gap-5">
+          <div className=" bg-black border border-white px-4 pt-5 rounded-[8px] lg:col-span-full lg:rounded-2xl lg:px-8 lg:pt-10">
+            <div className="grid h-full lg:grid-cols-2">
               <div>
-                <span className="text-3xl font-peto font-bold">
+                <span className="font-peto font-bold text-xl lg:text-3xl">
                   PROJECT CARD
                 </span>
-                <p className="mt-3">
+                <p className="hidden mt-3 lg:flex">
                   In the Project card page the project will be categorized by
                   two standards: location and topic. By this function, you can
                   check where projects are operated and the main topic of the
@@ -244,38 +266,57 @@ const Home = () => {
                   also get more information about the project such as target
                   audience, business model, and go to market strategy.
                 </p>
+                <p className="mt-1">
+                  The project card is a page where we categorize student
+                  projects by topic.
+                </p>
               </div>
-              <div className="w-full h-[500px] self-end overflow-hidden">
-                <img src={card_project} width={550} className="m-auto" />
+              <div className="w-full h-[100px] lg:h-[500px] self-end overflow-hidden">
+                <img
+                  src={card_project}
+                  className="m-auto w-[200px] lg:w-[550px]"
+                />
               </div>
             </div>
           </div>
-          <div className=" bg-black border border-white rounded-2xl px-12 pt-14">
+          <div className="bg-black border border-white px-4 pt-5 lg:px-12 lg:pt-14 rounded-[8px] lg:rounded-2xl">
             <div>
-              <span className="text-3xl font-peto font-bold">
+              <span className="font-peto font-bold text-xl lg:text-3xl">
                 VISION FRIEND
               </span>
-              <p className="mt-3">
+              <p className="hidden mt-3 lg:flex">
                 Vision Friend is a page with a list of visions. You interact
                 with other students with the same vision by pressing like and
                 commenting below. Additionally, you can build a project with a
                 vision friend with a shared vision.
               </p>
+              <p className="mt-1">
+                you can build a project with a vision friend with a shared
+                vision.
+              </p>
             </div>
-            <div className="w-full h-72 overflow-hidden mt-10">
+            <div className="w-full h-20 lg:h-72 overflow-hidden mt-10">
               <img src={card_visionFriend} />
             </div>
           </div>
-          <div className="bg-black border border-white rounded-2xl px-12 pt-14">
-            <span className="text-3xl font-peto font-bold">MEET UP!</span>
-            <p className="mt-3">
+          <div className="bg-black border border-white px-4 pt-5 lg:px-12 lg:pt-14 rounded-[8px] lg:rounded-2xl">
+            <span className="font-peto font-bold text-xl lg:text-3xl">
+              MEET UP!
+            </span>
+            <p className="hidden mt-3 lg:flex">
               Calendly may sound familiar to you. You can book a meeting with a
               project you find interesting. From this function, you can get
               useful advice and feedback for your project and even collaborate
               with the following project.
             </p>
-            <div className="w-full h-80 overflow-hidden mt-4">
-              <img src={card_detail} width={550} />
+            <p className="mt-1">
+              You can book a meeting with a project you find interesting.
+            </p>
+            <div className="w-full h-24 lg:h-80 overflow-hidden mt-7 lg:mt-4">
+              <img
+                src={card_detail}
+                className="m-auto w-[200px] lg:w-[550px]"
+              />
             </div>
           </div>
         </div>
@@ -383,7 +424,7 @@ const Home = () => {
                   control={form.control}
                   name="topic"
                   render={({ field }) => (
-                    <FormItem className="mt-5 lg:mt-0">
+                    <FormItem className="mt-5 lg:mt-0" onChange={onTopicChange}>
                       <FormLabel className="lg:text-lg">Topic</FormLabel>
                       <Select
                         onValueChange={field.onChange}
@@ -395,36 +436,56 @@ const Home = () => {
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="Culture">Culture</SelectItem>
-                          {/* <SelectItem value="Bilbao">Bilbao</SelectItem> */}
-                          {/* <SelectItem value="Madrid">Madrid</SelectItem> */}
+                          <SelectItem value="Technology/IT/AI">
+                            Technology/IT/AI
+                          </SelectItem>
+                          <SelectItem value="Sales/distribution">
+                            Sales/distribution
+                          </SelectItem>
+                          <SelectItem value="Manufacturing/Industrial">
+                            Manufacturing/Industrial
+                          </SelectItem>
+                          <SelectItem value="Education">Education</SelectItem>
+                          <SelectItem value="Healthcare">Healthcare</SelectItem>
+                          <SelectItem value="Culture/Art/Design">
+                            Culture/Art/Design
+                          </SelectItem>
+                          <SelectItem value="Consulting/Management (Brand/Marketing)">
+                            Consulting/Management (Brand/Marketing)
+                          </SelectItem>
+                          <SelectItem value="Gastronomy">Gastronomy</SelectItem>
+                          <SelectItem value="Sport">Sport</SelectItem>
+                          <SelectItem value="Real estate">
+                            Real estate
+                          </SelectItem>
+                          <SelectItem value="Other">Other</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                {/* <FormField
-                  control={form.control}
-                  name="hashTag"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-lg">Hashtag</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Type your hashtag and click enter."
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                /> */}
+                {isTopicOther ? (
+                  <FormField
+                    control={form.control}
+                    name="other"
+                    render={({ field }) => (
+                      <FormItem className="mt-5 lg:mt-0">
+                        <FormLabel className="lg:text-lg">Other</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Type your topic" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                ) : null}
+
                 <FormField
                   control={form.control}
                   name="image"
                   render={({ field }) => (
-                    <FormItem className="hidden lg:flex lg:flex-col">
+                    <FormItem className="hidden lg:flex lg:flex-col lg:col-span-full">
                       <FormLabel className="text-lg">
                         Logo or main photo
                       </FormLabel>
@@ -453,7 +514,7 @@ const Home = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="lg:text-lg">
-                        Team members' Email
+                        Team members&apos; Email
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -471,7 +532,7 @@ const Home = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="lg:text-lg invisible">
-                        Team members' Email
+                        Team members&apos; Email
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -489,7 +550,7 @@ const Home = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="invisible">
-                        Team members' Email
+                        Team members&apos; Email
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -507,7 +568,7 @@ const Home = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="invisible">
-                        Team members' Email
+                        Team members&apos; Email
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -525,7 +586,7 @@ const Home = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="invisible">
-                        Team members' Email
+                        Team members&apos; Email
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -543,7 +604,7 @@ const Home = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="invisible">
-                        Team members' Email
+                        Team members&apos; Email
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -561,7 +622,7 @@ const Home = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="invisible">
-                        Team members' Email
+                        Team members&apos; Email
                       </FormLabel>
                       <FormControl>
                         <Input
@@ -579,7 +640,7 @@ const Home = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel className="invisible">
-                        Team members' Email
+                        Team members&apos; Email
                       </FormLabel>
                       <FormControl>
                         <Input
