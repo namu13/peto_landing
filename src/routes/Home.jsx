@@ -1,11 +1,24 @@
 import "../App.css";
 import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
 import { useEffect, useRef, useState } from "react";
 import { CountUp } from "countup.js";
+
+// firebase
 import { addDoc, collection, updateDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db, storage } from "@/firebase";
-import { zodResolver } from "@hookform/resolvers/zod";
+
+// image assets
+import logo from "../assets/peto.svg";
+import logo_white from "../assets/peto_white.svg";
+import star from "../assets/star.svg";
+import card_project from "../assets/project.jpg";
+import card_visionFriend from "../assets/vision_friend.jpg";
+import card_detail from "../assets/detail.jpg";
+
+// shed cn ui
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
@@ -163,7 +176,7 @@ const Home = () => {
     <div className="flex flex-col justify-start items-center w-full h-full px-10 xl:px-40 lg:border lg:border-white">
       <section className="lg:mt-10">
         <div className="flex justify-center items-center gap-2 mb-10 lg:mb-16">
-          <img src="src/assets/peto.svg" width={40} />
+          <img src={logo} width={40} />
           <span className="text-peto font-bold text-3xl lg:text-4xl">PETO</span>
         </div>
         <h1 className="text-white text-center font-peto font-bold text-3xl mb-2 lg:mb-4 lg:text-7xl">
@@ -194,16 +207,12 @@ const Home = () => {
       <Separator className="bg-white" />
       <section className="w-full mt-10 lg:mt-24">
         <div className="hidden lg:flex lg:flex-row lg:items-center lg:justify-between">
-          <img src="src/assets/star.svg" width={45} />
+          <img src={star} width={45} />
           <h2 className="text-4xl font-peto font-bold">INFORMATION</h2>
-          <img src="src/assets/star.svg" width={45} />
+          <img src={star} width={45} />
         </div>
         <div className="flex justify-center items-center gap-2 lg:mt-12">
-          <img
-            src="src/assets/peto_white.svg"
-            width={40}
-            className="hidden lg:flex"
-          />
+          <img src={logo_white} width={40} className="hidden lg:flex" />
           <span className="font-bold font-peto text-3xl lg:text-4xl lg:font-sans">
             PETO
           </span>
@@ -237,11 +246,7 @@ const Home = () => {
                 </p>
               </div>
               <div className="w-full h-[500px] self-end overflow-hidden">
-                <img
-                  src="/src/assets/project.jpg"
-                  width={550}
-                  className="m-auto"
-                />
+                <img src={card_project} width={550} className="m-auto" />
               </div>
             </div>
           </div>
@@ -258,7 +263,7 @@ const Home = () => {
               </p>
             </div>
             <div className="w-full h-72 overflow-hidden mt-10">
-              <img src="/src/assets/vision_friend.jpg" />
+              <img src={card_visionFriend} />
             </div>
           </div>
           <div className="bg-black border border-white rounded-2xl px-12 pt-14">
@@ -270,16 +275,16 @@ const Home = () => {
               with the following project.
             </p>
             <div className="w-full h-80 overflow-hidden mt-4">
-              <img src="/src/assets/detail.jpg" width={550} />
+              <img src={card_detail} width={550} />
             </div>
           </div>
         </div>
       </section>
       <section id="form" className="w-full lg:mt-24">
         <div className="hidden lg:flex lg:flex-row lg:items-center lg:justify-between">
-          <img src="src/assets/star.svg" width={45} />
+          <img src={star} width={45} />
           <h2 className="text-4xl font-peto font-bold">REGISTER</h2>
-          <img src="src/assets/star.svg" width={45} />
+          <img src={star} width={45} />
         </div>
         <Separator className="bg-white mb-2 mt-10 lg:mb-10 lg:mt-24" />
         <h2 className="text-2xl mt-4 font-peto lg:hidden">Register</h2>
