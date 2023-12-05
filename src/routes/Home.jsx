@@ -3,7 +3,9 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { useEffect, useRef, useState } from "react";
+
 import { CountUp } from "countup.js";
+import jump from "jump.js";
 
 // firebase
 import { addDoc, collection, updateDoc } from "firebase/firestore";
@@ -40,6 +42,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { Link } from "react-router-dom";
 
 const formSchema = z.object({
   projectName: z.string().min(1, { message: "Please fill out Project name." }),
@@ -193,12 +196,12 @@ const Home = () => {
   };
   return (
     <div className="flex flex-col justify-start items-center w-full h-full px-8 xl:px-40 lg:border lg:border-white">
-      <section className="lg:mt-10">
+      <section className="lg:mt-16">
         <div className="flex justify-center items-center gap-2 mb-10 lg:mb-16">
           <img src={logo} width={40} />
           <span className="text-peto font-bold text-3xl lg:text-4xl">PETO</span>
         </div>
-        <h1 className="text-white text-center font-peto font-bold text-3xl mb-2 lg:mb-4 lg:text-7xl">
+        <h1 className="text-white text-center font-peto font-bold text-3xl mb-2 lg:mb-4 lg:text-8xl">
           LET’S DREAM <br />
           TOGETHER
         </h1>
@@ -214,36 +217,40 @@ const Home = () => {
           </div>{" "}
           Projects are Dreaming
         </p>
-        <div className="flex flex-col items-center mt-12 mb-10 lg:mb-16">
-          <Button className="px-12 text-xl font-bold rounded-[6px] border-none">
+        <div className="flex flex-col items-center mt-12 mb-10 lg:mt-16 lg:mb-24">
+          <Button
+            className="px-10 py-4 lg:px-12 lg:py-6 text-xl font-bold rounded-[6px] border-none hover:bg-[#a1c930]"
+            onClick={() => jump("#form", { offset: -30 })}
+          >
             Register
           </Button>
-          <Button variant="link" className="bg-black border-none mt-2">
+
+          <Button variant="link" className="bg-black border-none mt-2 text-lg">
             View projects
           </Button>
         </div>
       </section>
       <Separator className="bg-white" />
-      <section className="w-full mt-10 lg:mt-24">
+      <section className="w-full mt-10 lg:mt-32">
         <div className="hidden lg:flex lg:flex-row lg:items-center lg:justify-between">
           <img src={star} width={45} />
           <h2 className="text-4xl font-peto font-bold">INFORMATION</h2>
           <img src={star} width={45} />
         </div>
-        <div className="flex justify-center items-center gap-2 lg:mt-12">
+        <div className="flex justify-center items-center gap-2 lg:mt-16">
           <img src={logo_white} width={40} className="hidden lg:flex" />
           <span className="font-bold font-peto text-3xl lg:text-4xl lg:font-sans">
             PETO
           </span>
         </div>
-        <div className="flex flex-col items-center mt-5 lg:px-10">
-          <p className="text-xl lg:text-center">
+        <div className="flex flex-col items-center mt-5 lg:mt-7 lg:px-10">
+          <p className="text-xl lg:text-2xl lg:text-center">
             “PETO” means to seek for and to reach towards. We aim to build a
             platform for you to easily seek opportunities inside LEINN.
             Moreover, reach towards and boost your vision with reliable
             teammates.
           </p>
-          <p className="text-xl lg:text-center mt-3 mb-12">
+          <p className="text-xl lg:text-2xl lg:text-center mt-3 mb-12">
             Our platform has three main functions: project card, vision friend,
             and calendly.
           </p>
@@ -666,7 +673,7 @@ const Home = () => {
               ) : (
                 <Button
                   type="submit"
-                  className="border-none text-xl font-bold px-12 rounded-[6px]"
+                  className="border-none text-xl font-bold px-10 py-4 lg:px-12 lg:py-6 rounded-[6px] hover:bg-[#a1c930]"
                 >
                   Register
                 </Button>
@@ -680,3 +687,16 @@ const Home = () => {
 };
 
 export default Home;
+
+/* TODO
+프로젝트 진행상황 상태
+프로젝트 숫자 firebase와 연동
+버튼 클릭시 아래로 이동
+스티커 넣기
+그라디언트 배경 넣기
+설문 완료 페이지
+이메일 버튼을 통해 추가
+간격 띄우기
+스티커 애니매이션 넣기
+projects 페이지 만들기
+*/
