@@ -56,6 +56,7 @@ const formSchema = z.object({
     .max(1000, { message: "Please write less than 1000 letter." }),
   lab: z.string({ required_error: "Please select lab." }),
   teamCompany: z.string().min(1, { message: "Please fill out Team company." }),
+  status: z.string({ required_error: "Please select status." }),
   topic: z.string({ required_error: "Please select topic." }),
   other: z.string().optional(),
   memberEmail_1: z
@@ -516,13 +517,38 @@ const Home = () => {
                       </FormItem>
                     )}
                   />
-                ) : null}
-
+                ) : (
+                  <div></div>
+                )}
+                <FormField
+                  control={form.control}
+                  name="status"
+                  render={({ field }) => (
+                    <FormItem className="mt-5 lg:mt-0">
+                      <FormLabel className="lg:text-lg">Status</FormLabel>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select your status" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="In process">In process</SelectItem>
+                          <SelectItem value="Completed">Completed</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 <FormField
                   control={form.control}
                   name="image"
                   render={({ field }) => (
-                    <FormItem className="hidden lg:flex lg:flex-col lg:col-span-full">
+                    <FormItem className="hidden lg:flex lg:flex-col">
                       <FormLabel className="text-lg">
                         Logo or main photo
                       </FormLabel>
