@@ -32,6 +32,7 @@ import { Loader2 } from "lucide-react";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -47,6 +48,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 
 const formSchema = z.object({
   projectName: z.string().min(1, { message: "Please fill out Project name." }),
@@ -59,6 +61,9 @@ const formSchema = z.object({
   status: z.string({ required_error: "Please select status." }),
   topic: z.string({ required_error: "Please select topic." }),
   other: z.string().optional(),
+  personalData: z.boolean({
+    coerce: false,
+  }),
   memberEmail_1: z
     .string({ required_error: "Please fill out email." })
     .email()
@@ -168,8 +173,8 @@ const Home = () => {
       shortDescription: "",
       teamCompany: "",
       other: "",
-      memberEmail_1: "0@alumni.mondragon.edu",
-      memberEmail_2: "0@alumni.mondragon.edu",
+      memberEmail_1: "@alumni.mondragon.edu",
+      memberEmail_2: "@alumni.mondragon.edu",
       memberEmail_3: "0@alumni.mondragon.edu",
       memberEmail_4: "0@alumni.mondragon.edu",
       memberEmail_5: "0@alumni.mondragon.edu",
@@ -773,6 +778,35 @@ const Home = () => {
                   )}
                 />
               </div>
+              <FormField
+                control={form.control}
+                name="personalData"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 p-4">
+                    <FormControl>
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        className="hover:border-peto p-2"
+                      />
+                    </FormControl>
+                    <div className="space-y-1 leading-none">
+                      <FormLabel>Accept personal data protection</FormLabel>
+                      <FormDescription>
+                        You can read personal data protection policy{" "}
+                        <a
+                          href="https://namu13.notion.site/Peto-Personal-data-protection-b82fa02f9ad347a49138d5a596bfa4ea?pvs=4"
+                          className="text-peto hover:text-[#a1c930]"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          here.
+                        </a>
+                      </FormDescription>
+                    </div>
+                  </FormItem>
+                )}
+              />
             </div>
             <div className="w-full flex justify-center mt-12 mb-10">
               {loading ? (
