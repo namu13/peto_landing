@@ -168,6 +168,16 @@ const Home = () => {
       shortDescription: "",
       teamCompany: "",
       other: "",
+      memberEmail_1: "0@alumni.mondragon.edu",
+      memberEmail_2: "0@alumni.mondragon.edu",
+      memberEmail_3: "0@alumni.mondragon.edu",
+      memberEmail_4: "0@alumni.mondragon.edu",
+      memberEmail_5: "0@alumni.mondragon.edu",
+      memberEmail_6: "0@alumni.mondragon.edu",
+      memberEmail_7: "0@alumni.mondragon.edu",
+      memberEmail_8: "0@alumni.mondragon.edu",
+      memberEmail_9: "0@alumni.mondragon.edu",
+      memberEmail_10: "0@alumni.mondragon.edu",
     },
   });
 
@@ -201,7 +211,7 @@ const Home = () => {
     );
     let validEmails = emailKeys
       .map((key) => obj[key])
-      .filter((email) => email !== undefined);
+      .filter((email) => email !== "0@alumni.mondragon.edu");
     obj["memberEmail"] = validEmails;
     emailKeys.forEach((key) => delete obj[key]);
 
@@ -417,22 +427,6 @@ const Home = () => {
               <div className="lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-x-6 lg:gap-y-5">
                 <FormField
                   control={form.control}
-                  name="teamCompany"
-                  render={({ field }) => (
-                    <FormItem className="mt-5 lg:mt-0">
-                      <FormLabel className="lg:text-lg">Team Company</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Add Name of your Team company"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
                   name="lab"
                   render={({ field }) => (
                     <FormItem className="mt-5 lg:mt-0">
@@ -465,6 +459,22 @@ const Home = () => {
                           <SelectItem value="Seoul">LEINN Seoul</SelectItem>
                         </SelectContent>
                       </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="teamCompany"
+                  render={({ field }) => (
+                    <FormItem className="mt-5 lg:mt-0">
+                      <FormLabel className="lg:text-lg">Team Company</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Add Name of your Team company"
+                          {...field}
+                        />
+                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
