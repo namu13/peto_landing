@@ -450,8 +450,19 @@ const Home = () => {
                           <SelectItem value="LEINN International">
                             LEINN International
                           </SelectItem>
-                          <SelectItem value="Bilbao">Bilbao</SelectItem>
-                          <SelectItem value="Madrid">Madrid</SelectItem>
+                          <SelectItem value="Barcelona">
+                            LEINN Barcelona
+                          </SelectItem>
+                          <SelectItem value="Bilbao">LEINN Bilbao</SelectItem>
+                          <SelectItem value="Irun">LEINN Irun</SelectItem>
+                          <SelectItem value="Madrid">LEINN Madrid</SelectItem>
+                          <SelectItem value="Malaga">LEINN Malaga</SelectItem>
+                          <SelectItem value="Oñati">LEINN Oñati</SelectItem>
+                          <SelectItem value="Valencia">
+                            LEINN Valencia
+                          </SelectItem>
+                          <SelectItem value="Puebla">LEINN Puebla</SelectItem>
+                          <SelectItem value="Seoul">LEINN Seoul</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
