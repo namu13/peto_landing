@@ -187,7 +187,7 @@ const Home = () => {
           image: url,
         });
       }
-      form.reset();
+      window.location.reload();
     } catch (e) {
       console.log(e);
     } finally {
