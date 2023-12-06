@@ -2,7 +2,7 @@ import "../App.css";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useEffect, useRef, useState } from "react";
+import { lazy, useEffect, useRef, useState } from "react";
 
 import { CountUp } from "countup.js";
 import jump from "jump.js";
@@ -76,62 +76,62 @@ const formSchema = z.object({
     .endsWith("@alumni.mondragon.edu", {
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     }),
-  memberEmail_3: z
-    .string()
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    })
-    .optional(),
-  memberEmail_4: z
-    .string()
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    })
-    .optional(),
-  memberEmail_5: z
-    .string()
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    })
-    .optional(),
-  memberEmail_6: z
-    .string()
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    })
-    .optional(),
-  memberEmail_7: z
-    .string()
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    })
-    .optional(),
-  memberEmail_8: z
-    .string()
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    })
-    .optional(),
-  memberEmail_9: z
-    .string()
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    })
-    .optional(),
-  memberEmail_10: z
-    .string()
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    })
-    .optional(),
+  // memberEmail_3: z
+  //   .string()
+  //   .email()
+  //   .endsWith("@alumni.mondragon.edu", {
+  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+  //   })
+  //   .optional(),
+  // memberEmail_4: z
+  //   .string()
+  //   .email()
+  //   .endsWith("@alumni.mondragon.edu", {
+  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+  //   })
+  //   .optional(),
+  // memberEmail_5: z
+  //   .string()
+  //   .email()
+  //   .endsWith("@alumni.mondragon.edu", {
+  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+  //   })
+  //   .optional(),
+  // memberEmail_6: z
+  //   .string()
+  //   .email()
+  //   .endsWith("@alumni.mondragon.edu", {
+  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+  //   })
+  //   .optional(),
+  // memberEmail_7: z
+  //   .string()
+  //   .email()
+  //   .endsWith("@alumni.mondragon.edu", {
+  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+  //   })
+  //   .optional(),
+  // memberEmail_8: z
+  //   .string()
+  //   .email()
+  //   .endsWith("@alumni.mondragon.edu", {
+  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+  //   })
+  //   .optional(),
+  // memberEmail_9: z
+  //   .string()
+  //   .email()
+  //   .endsWith("@alumni.mondragon.edu", {
+  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+  //   })
+  //   .optional(),
+  // memberEmail_10: z
+  //   .string()
+  //   .email()
+  //   .endsWith("@alumni.mondragon.edu", {
+  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+  //   })
+  //   .optional(),
 });
 
 const Home = () => {
@@ -175,14 +175,14 @@ const Home = () => {
       other: "",
       memberEmail_1: "@alumni.mondragon.edu",
       memberEmail_2: "@alumni.mondragon.edu",
-      memberEmail_3: "0@alumni.mondragon.edu",
-      memberEmail_4: "0@alumni.mondragon.edu",
-      memberEmail_5: "0@alumni.mondragon.edu",
-      memberEmail_6: "0@alumni.mondragon.edu",
-      memberEmail_7: "0@alumni.mondragon.edu",
-      memberEmail_8: "0@alumni.mondragon.edu",
-      memberEmail_9: "0@alumni.mondragon.edu",
-      memberEmail_10: "0@alumni.mondragon.edu",
+      memberEmail_3: "@alumni.mondragon.edu",
+      memberEmail_4: "@alumni.mondragon.edu",
+      memberEmail_5: "@alumni.mondragon.edu",
+      memberEmail_6: "@alumni.mondragon.edu",
+      memberEmail_7: "@alumni.mondragon.edu",
+      memberEmail_8: "@alumni.mondragon.edu",
+      memberEmail_9: "@alumni.mondragon.edu",
+      memberEmail_10: "@alumni.mondragon.edu",
     },
   });
 
@@ -216,7 +216,7 @@ const Home = () => {
     );
     let validEmails = emailKeys
       .map((key) => obj[key])
-      .filter((email) => email !== "0@alumni.mondragon.edu");
+      .filter((email) => email !== "@alumni.mondragon.edu" || "");
     obj["memberEmail"] = validEmails;
     emailKeys.forEach((key) => delete obj[key]);
 
