@@ -8,7 +8,12 @@ import { CountUp } from "countup.js";
 import jump from "jump.js";
 
 // firebase
-import { addDoc, collection, updateDoc } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  getCountFromServer,
+  updateDoc,
+} from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db, storage } from "@/firebase";
 
@@ -42,7 +47,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
-import { Link } from "react-router-dom";
 
 const formSchema = z.object({
   projectName: z.string().min(1, { message: "Please fill out Project name." }),
@@ -108,23 +112,47 @@ const formSchema = z.object({
       message: 'Only "@alumni.mondragon.edu" email is alloweded.',
     })
     .optional(),
+  memberEmail_9: z
+    .string()
+    .email()
+    .endsWith("@alumni.mondragon.edu", {
+      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+    })
+    .optional(),
+  memberEmail_10: z
+    .string()
+    .email()
+    .endsWith("@alumni.mondragon.edu", {
+      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
+    })
+    .optional(),
 });
 
 const Home = () => {
+  const [projectNumber, setProjectNumber] = useState(0);
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
   const [isTopicOther, setIsTopicOther] = useState(false);
+
+  const fetchProjectNumber = async () => {
+    const coll = collection(db, "projects");
+    const snapshot = await getCountFromServer(coll);
+    setProjectNumber(snapshot.data().count);
+  };
 
   // Counter variable
   const countupRef = useRef(null);
   let countUpAnim;
 
   useEffect(() => {
+    fetchProjectNumber();
     initCountUp();
-  }, []);
+  }, [projectNumber]);
 
   const initCountUp = () => {
-    countUpAnim = new CountUp(countupRef.current, 241, { duration: 3 });
+    countUpAnim = new CountUp(countupRef.current, projectNumber, {
+      duration: 3,
+    });
     if (!countUpAnim.error) {
       countUpAnim.start();
     } else {
@@ -194,8 +222,10 @@ const Home = () => {
       setIsTopicOther(false);
     }
   };
+
   return (
     <div className="flex flex-col justify-start items-center w-full h-full px-8 xl:px-40 lg:border lg:border-white">
+      {/* <div className="absolute top-96 left-[600px] w-[900px] h-[900px] rounded-full bg-gradient-to-t from-[#7455E1] via-[#6CB097] to-[#CDFF06] blur-[100px] opacity-70"></div> */}
       <section className="lg:mt-16">
         <div className="flex justify-center items-center gap-2 mb-10 lg:mb-16">
           <img src={logo} width={40} />
@@ -386,6 +416,22 @@ const Home = () => {
               <div className="lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-x-6 lg:gap-y-5">
                 <FormField
                   control={form.control}
+                  name="teamCompany"
+                  render={({ field }) => (
+                    <FormItem className="mt-5 lg:mt-0">
+                      <FormLabel className="lg:text-lg">Team Company</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Add Name of your Team company"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
                   name="lab"
                   render={({ field }) => (
                     <FormItem className="mt-5 lg:mt-0">
@@ -407,22 +453,6 @@ const Home = () => {
                           <SelectItem value="Madrid">Madrid</SelectItem>
                         </SelectContent>
                       </Select>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name="teamCompany"
-                  render={({ field }) => (
-                    <FormItem className="mt-5 lg:mt-0">
-                      <FormLabel className="lg:text-lg">Team Company</FormLabel>
-                      <FormControl>
-                        <Input
-                          placeholder="Add Name of your Team company"
-                          {...field}
-                        />
-                      </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
@@ -659,6 +689,42 @@ const Home = () => {
                     </FormItem>
                   )}
                 />
+                <FormField
+                  control={form.control}
+                  name="memberEmail_9"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="invisible">
+                        Team members&apos; Email
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Add Email of your Team member"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="memberEmail_10"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="invisible">
+                        Team members&apos; Email
+                      </FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Add Email of your Team member"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
               </div>
             </div>
             <div className="w-full flex justify-center mt-12 mb-10">
@@ -689,9 +755,8 @@ const Home = () => {
 export default Home;
 
 /* TODO
+팀컴퍼니 랩 추가
 프로젝트 진행상황 상태
-프로젝트 숫자 firebase와 연동
-버튼 클릭시 아래로 이동
 스티커 넣기
 그라디언트 배경 넣기
 설문 완료 페이지
