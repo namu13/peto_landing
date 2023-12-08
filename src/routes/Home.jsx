@@ -480,6 +480,10 @@ const Home = () => {
                           {...field}
                         />
                       </FormControl>
+                      <FormDescription>
+                        Put slash if it is a collaboration project e.g.
+                        NEOS/KOMPLOTT
+                      </FormDescription>
                       <FormMessage />
                     </FormItem>
                   )}
