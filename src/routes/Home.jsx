@@ -252,42 +252,42 @@ const Home = () => {
       <img
         src={sticker_1}
         width={200}
-        className="absolute left-48 top-[430px] rotate-12 z-10"
+        className="hidden lg:absolute lg:left-48 lg:top-[430px] lg:rotate-12 lg:z-10 lg:flex"
       />
       <img
         src={sticker_2}
         width={180}
-        className="absolute left-48 top-[490px]"
+        className="hidden lg:absolute lg:left-48 lg:top-[490px] lg:flex"
       />
       <img
         src={sticker_3}
         width={200}
-        className="absolute left-48 top-[220px] -rotate-12 z-10"
+        className="hidden lg:absolute lg:left-48 lg:top-[220px] lg:-rotate-12 lg:z-10 lg:flex"
       />
       <img
         src={sticker_4}
         width={160}
-        className="absolute left-48 top-[90px]"
+        className="hidden lg:absolute lg:left-48 lg:top-[90px] lg:flex"
       />
       <img
         src={sticker_5}
         width={190}
-        className="absolute right-48 -rotate-12 top-[90px]"
+        className="hidden lg:absolute lg:right-48 lg:-rotate-12 lg:top-[90px] lg:flex"
       />
       <img
         src={sticker_6}
         width={120}
-        className="absolute right-56 top-[170px]"
+        className="hidden lg:absolute lg:right-56 lg:top-[170px] lg:flex"
       />
       <img
         src={sticker_7}
         width={190}
-        className="absolute right-56 top-[430px] -rotate-12 z-10"
+        className="hidden lg:absolute lg:right-56 lg:top-[430px] lg:-rotate-12 lg:z-10 lg:flex"
       />
       <img
         src={sticker_8}
         width={150}
-        className="absolute right-56 top-[490px] rotate-12 z-10"
+        className="hidden lg:absolute lg:right-56 lg:top-[490px] rotate-12 z-10 lg:flex"
       />
       {/* <div className="absolute top-96 left-[600px] w-[900px] h-[900px] rounded-full bg-gradient-to-t from-[#7455E1] via-[#6CB097] to-[#CDFF06] blur-[100px] opacity-70"></div> */}
       <section className="lg:mt-16">
