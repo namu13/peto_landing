@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220.48 131.96">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 30.37px;
+      }
+
+      .cls-1, .cls-2 {
+        font-family: Inter-Black, Inter;
+        font-weight: 800;
+      }
+
+      .cls-3 {
+        fill: #29fff7;
+      }
+
+      .cls-4 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2 {
+        font-size: 19.18px;
+      }
+
+      .cls-5 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-6 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-7 {
+        letter-spacing: -.02em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-3" x=".1" y=".24" width="220.27" height="126.85" rx="27.98" ry="27.98" transform="translate(.19 -.32) rotate(.17)"/>
+  <text class="cls-2" transform="translate(50.79 50.5) rotate(.17)"><tspan class="cls-6" x="0" y="0">W</tspan><tspan x="19.75" y="0">orld is our</tspan></text>
+  <text class="cls-1" transform="translate(22 85.27) rotate(.17)"><tspan x="0" y="0">pl</tspan><tspan class="cls-5" x="28.65" y="0">a</tspan><tspan class="cls-7" x="45.99" y="0">y</tspan><tspan x="63.85" y="0">g</tspan><tspan class="cls-4" x="83.57" y="0">r</tspan><tspan x="95.78" y="0">ound!</tspan></text>
+</svg>

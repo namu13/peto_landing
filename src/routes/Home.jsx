@@ -2,7 +2,7 @@ import "../App.css";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { lazy, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { CountUp } from "countup.js";
 import jump from "jump.js";
@@ -24,6 +24,14 @@ import star from "../assets/star.svg";
 import card_project from "../assets/project.jpg";
 import card_visionFriend from "../assets/vision_friend.jpg";
 import card_detail from "../assets/detail.jpg";
+import sticker_1 from "../assets/sticker_1.svg";
+import sticker_2 from "../assets/sticker_2.svg";
+import sticker_3 from "../assets/sticker_3.svg";
+import sticker_4 from "../assets/sticker_4.svg";
+import sticker_5 from "../assets/sticker_5.svg";
+import sticker_6 from "../assets/sticker_6.svg";
+import sticker_7 from "../assets/sticker_7.svg";
+import sticker_8 from "../assets/sticker_8.svg";
 
 // shed cn ui
 import { useForm } from "react-hook-form";
@@ -241,6 +249,46 @@ const Home = () => {
 
   return (
     <div className="flex flex-col justify-start items-center w-full h-full px-8 xl:px-40 lg:border lg:border-white">
+      <img
+        src={sticker_1}
+        width={200}
+        className="absolute left-48 top-[430px] rotate-12 z-10"
+      />
+      <img
+        src={sticker_2}
+        width={180}
+        className="absolute left-48 top-[490px]"
+      />
+      <img
+        src={sticker_3}
+        width={200}
+        className="absolute left-48 top-[220px] -rotate-12 z-10"
+      />
+      <img
+        src={sticker_4}
+        width={160}
+        className="absolute left-48 top-[90px]"
+      />
+      <img
+        src={sticker_5}
+        width={190}
+        className="absolute right-48 -rotate-12 top-[90px]"
+      />
+      <img
+        src={sticker_6}
+        width={120}
+        className="absolute right-56 top-[170px]"
+      />
+      <img
+        src={sticker_7}
+        width={190}
+        className="absolute right-56 top-[430px] -rotate-12 z-10"
+      />
+      <img
+        src={sticker_8}
+        width={150}
+        className="absolute right-56 top-[490px] rotate-12 z-10"
+      />
       {/* <div className="absolute top-96 left-[600px] w-[900px] h-[900px] rounded-full bg-gradient-to-t from-[#7455E1] via-[#6CB097] to-[#CDFF06] blur-[100px] opacity-70"></div> */}
       <section className="lg:mt-16">
         <div className="flex justify-center items-center gap-2 mb-10 lg:mb-16">

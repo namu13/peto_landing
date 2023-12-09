@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 189.85 189.76">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #29fff7;
+      }
+
+      .cls-2 {
+        font-family: Inter-Black, Inter;
+        font-size: 27.76px;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="92.3" cy="93.62" r="80.06"/>
+  <text class="cls-2" transform="translate(86.95 49.56) rotate(2.16)"><tspan x="0" y="0">T</tspan></text>
+  <text class="cls-2" transform="translate(104.76 50.2) rotate(23.22)"><tspan x="0" y="0">e</tspan></text>
+  <text class="cls-2" transform="translate(120.96 57.37) rotate(45.43)"><tspan x="0" y="0">a</tspan></text>
+  <text class="cls-2" transform="translate(133.78 69) rotate(72.8)"><tspan x="0" y="0">m</tspan></text>
+  <text class="cls-2" transform="translate(140.52 94.6) rotate(101.23)"><tspan x="0" y="0">p</tspan></text>
+  <text class="cls-2" transform="translate(136.19 112.95) rotate(121.4)"><tspan x="0" y="0">r</tspan></text>
+  <text class="cls-2" transform="translate(130.08 123.64) rotate(140.11)"><tspan x="0" y="0">e</tspan></text>
+  <text class="cls-2" transform="translate(116.43 134.97) rotate(163.07)"><tspan x="0" y="0">n</tspan></text>
+  <text class="cls-2" transform="translate(98.47 140.16) rotate(-173.9)"><tspan x="0" y="0">e</tspan></text>
+  <text class="cls-2" transform="translate(80.83 138.22) rotate(-150.86)"><tspan x="0" y="0">u</tspan></text>
+  <text class="cls-2" transform="translate(64.7 128.43) rotate(-130.52)"><tspan x="0" y="0">r</tspan></text>
+  <text class="cls-2" transform="translate(56.03 118.58) rotate(-111.35)"><tspan x="0" y="0">s</tspan></text>
+  <text class="cls-2" transform="translate(49.79 102.56) rotate(-88.53)"><tspan x="0" y="0">h</tspan></text>
+  <text class="cls-2" transform="translate(51.2 83.66) rotate(-70.61)"><tspan x="0" y="0">i</tspan></text>
+  <text class="cls-2" transform="translate(53.77 74.57) rotate(-52.54)"><tspan x="0" y="0">p</tspan></text>
+</svg>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216.8 113.86">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.03em;
+      }
+
+      .cls-2 {
+        fill: #fc00a0;
+      }
+
+      .cls-3 {
+        font-family: Inter-Black, Inter;
+        font-size: 23.52px;
+        font-weight: 800;
+      }
+
+      .cls-4 {
+        letter-spacing: -.09em;
+      }
+    </style>
+  </defs>
+  <path class="cls-2" d="M85.97,2.39L16.34,17.29C6.78,19.33-.04,27.79,0,37.56h0s.14,39.53,.14,39.53h0c.04,9.77,6.91,18.18,16.48,20.16l69.74,14.38c14.68,3.03,29.82,2.97,44.47-.16l69.63-14.89c9.56-2.04,16.37-10.5,16.34-20.28h0s-.14-39.53-.14-39.53h0c-.04-9.77-6.91-18.18-16.48-20.16L130.44,2.23c-14.68-3.03-29.82-2.97-44.47,.16Z"/>
+  <text class="cls-3" transform="translate(12.62 66.98) rotate(-.21)"><tspan x="0" y="0">IDEA </tspan><tspan class="cls-1" x="62.11" y="0">T</tspan><tspan x="77.44" y="0">O IM</tspan><tspan class="cls-4" x="129.59" y="0">P</tspan><tspan class="cls-1" x="142.89" y="0">A</tspan><tspan x="160.79" y="0">CT</tspan></text>
+</svg>

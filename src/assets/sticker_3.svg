@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 206.3 106.11">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fc7301;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: Inter-Black, Inter;
+        font-size: 21.33px;
+        font-weight: 800;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M82.26,2.05L15.9,15.35C6.79,17.17,.24,25,.19,34.11h0S0,70.94,0,70.94h0c-.05,9.11,6.43,17,15.51,18.92l66.22,13.99c13.94,2.94,28.34,3.02,42.31,.22l66.36-13.3c9.11-1.83,15.66-9.65,15.71-18.76h0s.19-36.84,.19-36.84h0c.05-9.11-6.43-17-15.51-18.92L124.56,2.26c-13.94-2.94-28.34-3.02-42.31-.22Z"/>
+  <text class="cls-2" transform="translate(12.51 60.18) rotate(.3) scale(1.02 1)"><tspan x="0" y="0">CHANGEMAKER</tspan></text>
+</svg>

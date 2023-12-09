@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 202.17 89.79">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.09em;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: Inter-Black, Inter;
+        font-size: 24.61px;
+        font-weight: 800;
+      }
+
+      .cls-3 {
+        fill: #8300ff;
+      }
+
+      .cls-4 {
+        letter-spacing: -.12em;
+      }
+
+      .cls-5 {
+        letter-spacing: -.05em;
+      }
+    </style>
+  </defs>
+  <rect class="cls-3" x="0" y="0" width="202.17" height="89.79" rx="17.26" ry="17.26"/>
+  <text class="cls-2" transform="translate(15.44 53.71)"><tspan x="0" y="0">INN</tspan><tspan class="cls-5" x="42.75" y="0">O</tspan><tspan class="cls-4" x="61.21" y="0">V</tspan><tspan class="cls-1" x="77.85" y="0">A</tspan><tspan x="95.16" y="0">TION!</tspan></text>
+</svg>
