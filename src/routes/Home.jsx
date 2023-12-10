@@ -1,11 +1,15 @@
 import "../App.css";
+import { useEffect, useRef, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+
+// Validation
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { useEffect, useRef, useState } from "react";
-
+// JS Library
 import { CountUp } from "countup.js";
 import jump from "jump.js";
+import { motion } from "framer-motion";
 
 // firebase
 import {
@@ -143,6 +147,8 @@ const formSchema = z.object({
 });
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [projectNumber, setProjectNumber] = useState(0);
   const [loading, setLoading] = useState(false);
   const [file, setFile] = useState(null);
@@ -210,7 +216,7 @@ const Home = () => {
           image: url,
         });
       }
-      window.location.reload();
+      navigate("/submit");
     } catch (e) {
       console.log(e);
     } finally {
@@ -249,42 +255,50 @@ const Home = () => {
 
   return (
     <div className="flex flex-col justify-start items-center w-full h-full px-8 xl:px-40 lg:border lg:border-white">
-      <img
+      <motion.img
+        whileHover={{ scale: 1.1, rotate: 20 }}
         src={sticker_1}
         width={200}
         className="hidden lg:absolute lg:left-48 lg:top-[430px] lg:rotate-12 lg:z-10 lg:flex"
       />
-      <img
+      <motion.img
+        whileHover={{ scale: 1.2, rotate: 70 }}
         src={sticker_2}
         width={180}
         className="hidden lg:absolute lg:left-48 lg:top-[490px] lg:flex"
       />
-      <img
+      <motion.img
+        whileHover={{ scale: 1.2, rotate: 20 }}
         src={sticker_3}
         width={200}
         className="hidden lg:absolute lg:left-48 lg:top-[220px] lg:-rotate-12 lg:z-10 lg:flex"
       />
-      <img
+      <motion.img
+        whileHover={{ scale: 1.2, rotate: 70 }}
         src={sticker_4}
         width={160}
         className="hidden lg:absolute lg:left-48 lg:top-[90px] lg:flex"
       />
-      <img
+      <motion.img
+        whileHover={{ scale: 1.1, rotate: 20 }}
         src={sticker_5}
         width={190}
         className="hidden lg:absolute lg:right-48 lg:-rotate-12 lg:top-[90px] lg:flex"
       />
-      <img
+      <motion.img
+        whileHover={{ scale: 1.2, rotate: 70 }}
         src={sticker_6}
         width={120}
         className="hidden lg:absolute lg:right-56 lg:top-[170px] lg:flex"
       />
-      <img
+      <motion.img
+        whileHover={{ scale: 1.1, rotate: 20 }}
         src={sticker_7}
         width={190}
         className="hidden lg:absolute lg:right-56 lg:top-[430px] lg:-rotate-12 lg:z-10 lg:flex"
       />
-      <img
+      <motion.img
+        whileHover={{ scale: 1.1, rotate: -20 }}
         src={sticker_8}
         width={150}
         className="hidden lg:absolute lg:right-56 lg:top-[490px] rotate-12 z-10 lg:flex"
@@ -318,10 +332,14 @@ const Home = () => {
           >
             Register
           </Button>
-
-          <Button variant="link" className="bg-black border-none mt-2 text-lg">
-            View projects
-          </Button>
+          <Link to={"/projects"}>
+            <Button
+              variant="link"
+              className="bg-[#0B0A09] border-none mt-2 text-lg"
+            >
+              View projects
+            </Button>
+          </Link>
         </div>
       </section>
       <Separator className="bg-white" />
@@ -889,12 +907,6 @@ export default Home;
 
 /* TODO
 팀컴퍼니 랩 추가
-프로젝트 진행상황 상태
-스티커 넣기
 그라디언트 배경 넣기
-설문 완료 페이지
 이메일 버튼을 통해 추가
-간격 띄우기
-스티커 애니매이션 넣기
-projects 페이지 만들기
 */
