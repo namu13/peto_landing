@@ -137,7 +137,7 @@ const Projects = () => {
         <div className="grid grid-cols-1 gap-5 mb-20 lg:grid lg:grid-cols-3 lg:px-10">
           {loading
             ? [1, 2, 3, 4, 5, 6].map((key) => (
-                <Skeleton key={key} className="w-96 h-[450px]" />
+                <Skeleton key={key} className="w-96 h-[550px]" />
               ))
             : projects.map((project) => <Card key={project.id} {...project} />)}
         </div>

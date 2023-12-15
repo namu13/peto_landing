@@ -76,74 +76,16 @@ const formSchema = z.object({
   personalData: z.boolean({
     coerce: false,
   }),
-  memberEmail_1: z
-    .string({ required_error: "Please fill out email." })
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    }),
-  memberEmail_2: z
-    .string({ required_error: "Please fill out email." })
-    .email()
-    .endsWith("@alumni.mondragon.edu", {
-      message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-    }),
-  // memberEmail_3: z
-  //   .string()
-  //   .email()
-  //   .endsWith("@alumni.mondragon.edu", {
-  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-  //   })
-  //   .optional(),
-  // memberEmail_4: z
-  //   .string()
-  //   .email()
-  //   .endsWith("@alumni.mondragon.edu", {
-  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-  //   })
-  //   .optional(),
-  // memberEmail_5: z
-  //   .string()
-  //   .email()
-  //   .endsWith("@alumni.mondragon.edu", {
-  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-  //   })
-  //   .optional(),
-  // memberEmail_6: z
-  //   .string()
-  //   .email()
-  //   .endsWith("@alumni.mondragon.edu", {
-  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-  //   })
-  //   .optional(),
-  // memberEmail_7: z
-  //   .string()
-  //   .email()
-  //   .endsWith("@alumni.mondragon.edu", {
-  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-  //   })
-  //   .optional(),
-  // memberEmail_8: z
-  //   .string()
-  //   .email()
-  //   .endsWith("@alumni.mondragon.edu", {
-  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-  //   })
-  //   .optional(),
-  // memberEmail_9: z
-  //   .string()
-  //   .email()
-  //   .endsWith("@alumni.mondragon.edu", {
-  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-  //   })
-  //   .optional(),
-  // memberEmail_10: z
-  //   .string()
-  //   .email()
-  //   .endsWith("@alumni.mondragon.edu", {
-  //     message: 'Only "@alumni.mondragon.edu" email is alloweded.',
-  //   })
-  //   .optional(),
+  memberEmail_1: z.string({ required_error: "Please fill out email." }).email(),
+  memberEmail_2: z.string({ required_error: "Please fill out email." }).email(),
+  memberEmail_3: z.string().email().optional().or(z.literal("")),
+  memberEmail_4: z.string().email().optional().or(z.literal("")),
+  memberEmail_5: z.string().email().optional().or(z.literal("")),
+  memberEmail_6: z.string().email().optional().or(z.literal("")),
+  memberEmail_7: z.string().email().optional().or(z.literal("")),
+  memberEmail_8: z.string().email().optional().or(z.literal("")),
+  memberEmail_9: z.string().email().optional().or(z.literal("")),
+  memberEmail_10: z.string().email().optional().or(z.literal("")),
 });
 
 const Home = () => {
@@ -187,16 +129,16 @@ const Home = () => {
       shortDescription: "",
       teamCompany: "",
       other: "",
-      memberEmail_1: "@alumni.mondragon.edu",
-      memberEmail_2: "@alumni.mondragon.edu",
-      memberEmail_3: "@alumni.mondragon.edu",
-      memberEmail_4: "@alumni.mondragon.edu",
-      memberEmail_5: "@alumni.mondragon.edu",
-      memberEmail_6: "@alumni.mondragon.edu",
-      memberEmail_7: "@alumni.mondragon.edu",
-      memberEmail_8: "@alumni.mondragon.edu",
-      memberEmail_9: "@alumni.mondragon.edu",
-      memberEmail_10: "@alumni.mondragon.edu",
+      memberEmail_1: "",
+      memberEmail_2: "",
+      memberEmail_3: "",
+      memberEmail_4: "",
+      memberEmail_5: "",
+      memberEmail_6: "",
+      memberEmail_7: "",
+      memberEmail_8: "",
+      memberEmail_9: "",
+      memberEmail_10: "",
     },
   });
 
@@ -230,7 +172,7 @@ const Home = () => {
     );
     let validEmails = emailKeys
       .map((key) => obj[key])
-      .filter((email) => email !== "@alumni.mondragon.edu" || "");
+      .filter((email) => email !== "");
     obj["memberEmail"] = validEmails;
     emailKeys.forEach((key) => delete obj[key]);
 
@@ -259,49 +201,49 @@ const Home = () => {
         whileHover={{ scale: 1.1, rotate: 20 }}
         src={sticker_1}
         width={200}
-        className="hidden lg:absolute lg:left-48 lg:top-[430px] lg:rotate-12 lg:z-10 lg:flex"
+        className="hidden lg:absolute 2xl:left-44 lg:left-24 lg:top-[430px] lg:rotate-12 lg:z-10 lg:flex"
       />
       <motion.img
         whileHover={{ scale: 1.2, rotate: 70 }}
         src={sticker_2}
         width={180}
-        className="hidden lg:absolute lg:left-48 lg:top-[490px] lg:flex"
+        className="hidden lg:absolute 2xl:left-44 lg:left-24 lg:top-[490px] lg:flex"
       />
       <motion.img
         whileHover={{ scale: 1.2, rotate: 20 }}
         src={sticker_3}
         width={200}
-        className="hidden lg:absolute lg:left-48 lg:top-[220px] lg:-rotate-12 lg:z-10 lg:flex"
+        className="hidden lg:absolute 2xl:left-44 lg:left-24 lg:top-[220px] lg:-rotate-12 lg:z-10 lg:flex"
       />
       <motion.img
         whileHover={{ scale: 1.2, rotate: 70 }}
         src={sticker_4}
         width={160}
-        className="hidden lg:absolute lg:left-48 lg:top-[90px] lg:flex"
+        className="hidden lg:absolute 2xl:left-44 lg:left-24 lg:top-[90px] lg:flex"
       />
       <motion.img
         whileHover={{ scale: 1.1, rotate: 20 }}
         src={sticker_5}
         width={190}
-        className="hidden lg:absolute lg:right-48 lg:-rotate-12 lg:top-[90px] lg:flex"
+        className="hidden lg:absolute 2xl:right-44 lg:right-28 lg:-rotate-12 lg:top-[90px] lg:flex"
       />
       <motion.img
         whileHover={{ scale: 1.2, rotate: 70 }}
         src={sticker_6}
         width={120}
-        className="hidden lg:absolute lg:right-56 lg:top-[170px] lg:flex"
+        className="hidden lg:absolute 2xl:right-52 lg:right-36 lg:top-[170px] lg:flex"
       />
       <motion.img
         whileHover={{ scale: 1.1, rotate: 20 }}
         src={sticker_7}
         width={190}
-        className="hidden lg:absolute lg:right-56 lg:top-[430px] lg:-rotate-12 lg:z-10 lg:flex"
+        className="hidden lg:absolute 2xl:right-52 lg:right-28 lg:top-[430px] lg:-rotate-12 lg:z-10 lg:flex"
       />
       <motion.img
         whileHover={{ scale: 1.1, rotate: -20 }}
         src={sticker_8}
         width={150}
-        className="hidden lg:absolute lg:right-56 lg:top-[490px] rotate-12 z-10 lg:flex"
+        className="hidden lg:absolute 2xl:right-52 lg:right-28 lg:top-[490px] rotate-12 z-10 lg:flex"
       />
       {/* <div className="absolute top-96 left-[600px] w-[900px] h-[900px] rounded-full bg-gradient-to-t from-[#7455E1] via-[#6CB097] to-[#CDFF06] blur-[100px] opacity-70"></div> */}
       <section className="lg:mt-16">
