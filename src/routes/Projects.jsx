@@ -85,7 +85,7 @@ const Projects = () => {
     }
   };
   return (
-    <div className="flex flex-col justify-start items-center w-full h-full px-8 xl:px-40 lg:border lg:border-white">
+    <div className="flex flex-col justify-start items-center w-full h-full px-8 2xl:px-40 lg:border lg:border-white">
       <motion.img
         whileHover={{ scale: 1.2, rotate: 70 }}
         src={sticker_4}

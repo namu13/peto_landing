@@ -1,3 +1,4 @@
+// React
 import "../App.css";
 import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -848,7 +849,6 @@ const Home = () => {
 export default Home;
 
 /* TODO
-팀컴퍼니 랩 추가
 그라디언트 배경 넣기
 이메일 버튼을 통해 추가
 */

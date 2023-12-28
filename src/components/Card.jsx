@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 const Card = ({
   projectName,
   shortDescription,
@@ -7,8 +9,21 @@ const Card = ({
   teamCompany,
   image,
 }) => {
+  const descriptionRef = useRef();
+  const [lineClamp, setLineClamp] = useState(false);
+  const [viewMore, setViewMore] = useState(false);
+
+  const isLineClamp = () => {
+    setLineClamp(
+      descriptionRef.current.scrollHeight > descriptionRef.current.clientHeight
+    );
+  };
+
+  useEffect(() => {
+    isLineClamp();
+  }, []);
   return (
-    <div className="p-6 border border-white">
+    <div className="p-6 border border-white h-fit">
       <div className="flex justify-between">
         <span>{lab}</span>
         <span>{teamCompany}</span>
@@ -22,9 +37,38 @@ const Card = ({
       )}
 
       <span className="text-3xl font-bold">{projectName}</span>
-      <div className="h-14">
-        <p className="mt-1 text-zinc-400 line-clamp-2">{shortDescription}</p>
-      </div>
+      {viewMore ? (
+        <p ref={descriptionRef} className="mt-1 text-zinc-400">
+          {shortDescription}
+        </p>
+      ) : (
+        <div className="h-12">
+          <p ref={descriptionRef} className="mt-1 text-zinc-400 line-clamp-2">
+            {shortDescription}
+          </p>
+        </div>
+      )}
+
+      {lineClamp ? (
+        viewMore ? (
+          <a
+            onClick={() => setViewMore(false)}
+            className="block text-zinc-200 hover:text-zinc-200 hover:underline cursor-pointer mb-3"
+          >
+            View less
+          </a>
+        ) : (
+          <a
+            onClick={() => setViewMore(true)}
+            className="block text-zinc-200 hover:text-zinc-200 hover:underline cursor-pointer mb-3"
+          >
+            View more
+          </a>
+        )
+      ) : (
+        <div className="h-9"></div>
+      )}
+
       <span className="text-peto font-bold">
         # {topic === "Other" ? other : topic}
       </span>
